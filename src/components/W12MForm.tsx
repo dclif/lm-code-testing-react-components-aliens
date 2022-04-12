@@ -5,15 +5,16 @@ import PlanetName from './PlanetName'
 import NumberBeings from './NumberBeings';
 import Sum from './Sum'
 import Reason from './Reason'
-
+import Submit from './Submit'
 
 
 const W12MForm = () => {
 	const [speciesName, setSpeciesName] = useState<string>('');
 	const [planetName, setPlanetName] = useState<string>('');
-	const [numberBeings, setNumberBeings] = useState<string>('');
+	const [numberBeings, setNumberBeings] = useState<number>(0);
 	const [sum, setSum] = useState<string>('4');
 	const [reason, setReason] = useState<string>('');
+	
 
 	return (
 		<section className='w12MForm'>
@@ -23,7 +24,7 @@ const W12MForm = () => {
 			<NumberBeings numberBeings={numberBeings} onChangeNumberBeings={(e : any) => setNumberBeings(e.target.value)} />
 			<Sum sum={sum} onChangeSum={(e : any) => setSum(e.target.value)}/>
 			<Reason reason={reason} onChangeReason={(e : any) => setReason(e.target.value)} />
-			<input type="submit" value="Submit form" onClick={() => console.log(speciesName, planetName, numberBeings, sum, reason)} />
+			<Submit speciesName={speciesName} planetName={planetName} numberBeings={numberBeings} sum={sum} reason={reason} />
 		</section>
 	);
 };

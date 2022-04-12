@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent  } from '@testing-library/react';
 import W12MForm from './W12MForm';
 
 test('renders form element', () => {
@@ -9,4 +9,9 @@ test('renders form element', () => {
 	// the container is just a normal DOM element, so we can look at normal properties like '.firstChild'
 	// for example, the firstChild of our container should be our form element
 	expect(container.firstChild).toHaveClass('w12MForm');
+	
 });
+
+
+
+

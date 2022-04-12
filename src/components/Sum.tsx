@@ -9,10 +9,12 @@ const answers = [
   {
     value: '4',
     label: '4',
+    key: '4'
   },
   {
     value: 'not 4',
     label: 'not 4',
+    key:'not4'
   },
 ];
 
@@ -27,7 +29,7 @@ const Sum : React.FC<sumProps> = ({sum, onChangeSum}) => {
               onChange={onChangeSum}
             >
             {answers.map((option) => (
-              <option value={option.value}>{option.label}</option>
+              <option value={option.value} key={option.key}>{option.label}</option>
             ))}
             
             

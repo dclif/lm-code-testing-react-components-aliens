@@ -1,5 +1,5 @@
 interface NumberBeingsProps { 
-	numberBeings: string;
+	numberBeings: number;
 	onChangeNumberBeings: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -8,7 +8,7 @@ const NumberBeings : React.FC<NumberBeingsProps> = ({numberBeings, onChangeNumbe
     <div>
         <label>Number of beings: 
             <input
-              type="text"
+              type="number"
               name="numberBeings"
               value={numberBeings}
               onChange={onChangeNumberBeings}
