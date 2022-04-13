@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import SpeciesName from './SpeciesName';
+import ErrorMessage from "./ErrorMessage"
 
 // 1. Does the component render?
 test('renders species name element', () => {
@@ -23,24 +24,16 @@ test('calls on change function with correct paramaters', () => {
 });
 
 
+test('checks validation message appears when invalid props given', () => {
+    const mock = jest.fn();
+    const component = render(<SpeciesName speciesName={"Human"} onChangeSpeciesName={mock} />)
+    fireEvent.change(component.getByRole('textbox'), {target: {value: "hello7"}})
+    expect(screen.getByText("Input Must be between 3 and 23 characters. No numbers or special characters allowed!")).toBeInTheDocument()
+    
+});
 
 
 
 
 
-
-// render(<SpeciesName speciesName={"Human"} onChangeSpeciesName={()=>{"hello"}} />);
-	// const { container, getByLabelText, getByRole, screen} = 
-    // render(<SpeciesName speciesName={"Human"} onChangeSpeciesName={()=>{"hello"}} />);
-	//does document render ?
-	// expect(getByLabelText('Species Name:')).toBeInTheDocument()
-    // expect(getByLabelText('Species Name:').textContent).toBe("Human")
-    //If we give input fields certain values through props, do they display that value?
-    // expect(getByRole('textbox', { name: /species name:/i })).toHaveTextContent("")
-    // const tBox = screen.getByRole('textbox', {name: /species name:/i})
-    //   (tBox).toBeInTheDocument()
-    // .toHaveTextContent("Human")
-    //Does each input field call its onChange function and pass it the correct parameters?
-    // render(<SpeciesName speciesName={"Human"} onChangeSpeciesName={()=>{"hello"}} />)
-    // expect(screen.getAllByRole('type="text"')).toBeInTheDocument()
-    // expect(screen.getByLabelText('Species Name:')).toBeInTheDocument()
+  

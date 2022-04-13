@@ -29,8 +29,8 @@ const SpeciesName : React.FC<SpeciesNameProps> = ( {speciesName, onChangeSpecies
                 setErrorMessage(errorMessage);
 					      onChangeSpeciesName(e);
                } } />
-               <ErrorMessage errorMessage={errorMessage}/>
           </label>
+          <ErrorMessage errorMessage={errorMessage}/>
     </div>
   )
 }
