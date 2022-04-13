@@ -1,4 +1,5 @@
-
+import { useState } from 'react';
+import ErrorMessage from "./ErrorMessage"
 
 interface sumProps { 
 	sum: string;
@@ -19,6 +20,15 @@ const answers = [
 ];
 
 const Sum : React.FC<sumProps> = ({sum, onChangeSum}) => {
+
+  const [ errorMessage, setErrorMessage ] = useState<string>("");
+
+  const validate : (value : string) => string  = (value) => {
+		
+    if(value !== "4" ) { return "That is the wrong answer"}
+
+		return "";
+		}
   
   return (
     <div>
@@ -26,7 +36,11 @@ const Sum : React.FC<sumProps> = ({sum, onChangeSum}) => {
             <select
               name="sum"
               value={sum}
-              onChange={onChangeSum}
+              onChange={(e) => { 
+                const errorMessage = validate(e.target.value);
+                setErrorMessage(errorMessage);
+					      onChangeSum(e);
+               } }
             >
             {answers.map((option) => (
               <option value={option.value} key={option.key}>{option.label}</option>
@@ -35,6 +49,7 @@ const Sum : React.FC<sumProps> = ({sum, onChangeSum}) => {
             
             </select>
           </label>
+          <ErrorMessage errorMessage={errorMessage}/>
     </div>
   )
 }
