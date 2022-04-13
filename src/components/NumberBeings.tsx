@@ -29,8 +29,8 @@ const NumberBeings : React.FC<NumberBeingsProps> = ({numberBeings, onChangeNumbe
                 setErrorMessage(errorMessage);
 					      onChangeNumberBeings(e);
                } } />
-               <ErrorMessage errorMessage={errorMessage}/>
           </label>
+          <ErrorMessage errorMessage={errorMessage}/>
     </div>
   )
 }

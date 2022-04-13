@@ -30,8 +30,9 @@ const Reason : React.FC<reasonProps> = ({reason, onChangeReason}) => {
                } }
             >
             </textarea>
+            </label>
             <ErrorMessage errorMessage={errorMessage}/>
-          </label>
+          
     </div>
   )
 }

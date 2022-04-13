@@ -21,3 +21,11 @@ test('calls on change function with correct paramaters', () => {
     expect(mock).toHaveBeenCalled()
 
 });
+
+test('checks validation message appears when invalid props given', () => {
+    const mock = jest.fn();
+    const component = render(<Sum sum={"4"} onChangeSum={mock} />)
+    fireEvent.change(component.getByRole('combobox'), {target: {value: "Not 4"}})
+    expect(screen.getByText("That is the wrong answer")).toBeInTheDocument()
+    
+});

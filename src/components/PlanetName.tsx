@@ -29,8 +29,8 @@ const PlanetName : React.FC<planetNameProps> = ({planetName, onChangePlanetName}
                 setErrorMessage(errorMessage);
 					      onChangePlanetName(e);
                } } />
-               <ErrorMessage errorMessage={errorMessage}/>
           </label>
+          <ErrorMessage errorMessage={errorMessage}/>
     </div>
   )
 }

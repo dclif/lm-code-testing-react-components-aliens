@@ -21,3 +21,11 @@ test('calls on change function with correct paramaters', () => {
     expect(mock).toHaveBeenCalled()
 
 });
+
+test('checks validation message appears when invalid props given', () => {
+    const mock = jest.fn();
+    const component = render(<PlanetName planetName={"Uranus"} onChangePlanetName={mock} />)
+    fireEvent.change(component.getByRole('textbox'), {target: {value: "6"}})
+    expect(screen.getByText("Input Must be between 2 and 49 characters. Numbers are allowed, but no special characters.")).toBeInTheDocument()
+
+});

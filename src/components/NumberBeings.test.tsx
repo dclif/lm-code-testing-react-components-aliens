@@ -21,3 +21,11 @@ test('calls on change function with correct paramaters', () => {
     expect(mock).toHaveBeenCalled()
 
 });
+
+test('checks validation message appears when invalid props given', () => {
+    const mock = jest.fn();
+    const component = render(<NumberBeings numberBeings={42} onChangeNumberBeings={mock} />)
+    fireEvent.change(component.getByRole('spinbutton'), {target: {value: 1}})
+    expect(screen.getByText("Numbers ONLY. Must be at least 1,000,000,000.")).toBeInTheDocument()
+
+});
